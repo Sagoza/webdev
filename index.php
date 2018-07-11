@@ -1,19 +1,30 @@
 <?php
   $mysqli = new mysqli("localhost", "root", "", "quadb");
+  $i=-1;
 
-  if ($result = $mysqli->query("SELECT * FROM eventlist")) {
-    printf("Select returned %d rows.\n", $result->num_rows);
-
-    /* free result set */
-    /* $result->close();*/
-  }
-
-  $row = $result->fetch_array(MYSQLI_ASSOC);
-
+  $arr = array();
   $eventDate = 'eventDate';
   $eventTitle = 'eventName';
   $eventParagraph = 'eventParagraph';
   $eventImgLink = 'eventImgLink';
+
+  if ($result = $mysqli->query("SELECT * FROM eventlist ORDER BY Id DESC limit 5")) {
+    while($row = mysqli_fetch_array($result))
+    {
+        $i++;
+
+        //$arr[$i]=array();
+        $arr[$i][$eventDate]=$row[$eventDate];
+        $arr[$i][$eventTitle]=$row[$eventTitle];
+        $arr[$i][$eventParagraph]=$row[$eventParagraph];
+        $arr[$i][$eventImgLink]=$row[$eventImgLink];
+        //$SubjectCode[$i]['SubLongName']=$row['SubLongName'];
+    }
+    //printf("Select returned %d rows.\n", $result->num_rows);
+
+    /* free result set */
+    /* $result->close();*/
+  }
 
   $result->free();
   $mysqli->close();
@@ -69,58 +80,85 @@
 
   <div class="event-container">
     <div class="event">
-      <div class="event-img-container" <?php echo 'style= "background-image: url(' . $row[$eventImgLink] . ');"';?>>
-        <div class="event-date-container"><p id="eventDate">12, 13, 14 Julho de 2018</p></div>
+      <div class="event-img-container" <?php echo 'style= "background-image: url(' . $arr[0][$eventImgLink] . ');"';?>>
+        <div class="event-date-container"><p id="eventDate">
+          <?php echo $arr[0][$eventDate];?>
+        </p></div>
       </div>
       <div class="event-text-container">
         <h1 id="eventTitle1">
-          <?php echo $row[$eventTitle];?>
+          <?php echo $arr[0][$eventTitle];?>
         </h1>
         <p id="eventParagraph">
-          <?php echo $row[$eventParagraph];?>
+          <?php echo $arr[0][$eventParagraph];?>
         </p>
       </div>
     </div>
 
     <div class="event">
-      <div class="event-img-container">
-        <div class="event-date-container"><p id="eventDate">12, 13, 14 Julho de 2018</p></div>
+      <div class="event-img-container" <?php echo 'style= "background-image: url(' . $arr[1][$eventImgLink] . ');"';?>>
+        <div class="event-date-container"><p id="eventDate">
+          <?php echo $arr[1][$eventDate];?>
+        </p></div>
       </div>
       <div class="event-text-container">
-        <h1 id="eventTitle">NOS Alive</h1>
-        <p id="eventParagraph">Venha ao Passeio Maritimo de Alges ver: Pearl Jam, The Gift, Churky e muito mais.</p>
+        <h1 id="eventTitle1">
+          <?php echo $arr[1][$eventTitle];?>
+        </h1>
+        <p id="eventParagraph">
+          <?php echo $arr[1][$eventParagraph];?>
+        </p>
       </div>
     </div>
 
     <div class="event">
-      <div class="event-img-container">
-        <div class="event-date-container"><p id="eventDate">12, 13, 14 Julho de 2018</p></div>
+      <div class="event-img-container" <?php echo 'style= "background-image: url(' . $arr[2][$eventImgLink] . ');"';?>>
+        <div class="event-date-container"><p id="eventDate">
+          <?php echo $arr[2][$eventDate];?>
+        </p></div>
       </div>
       <div class="event-text-container">
-        <h1 id="eventTitle">NOS Alive</h1>
-        <p id="eventParagraph">Venha ao Passeio Maritimo de Alges ver: Pearl Jam, The Gift, Churky e muito mais.</p>
+        <h1 id="eventTitle1">
+          <?php echo $arr[2][$eventTitle];?>
+        </h1>
+        <p id="eventParagraph">
+          <?php echo $arr[2][$eventParagraph];?>
+        </p>
       </div>
     </div>
 
     <div class="event">
-      <div class="event-img-container">
-        <div class="event-date-container"><p id="eventDate">12, 13, 14 Julho de 2018</p></div>
+      <div class="event-img-container" <?php echo 'style= "background-image: url(' . $arr[3][$eventImgLink] . ');"';?>>
+        <div class="event-date-container"><p id="eventDate">
+          <?php echo $arr[3][$eventDate];?>
+        </p></div>
       </div>
       <div class="event-text-container">
-        <h1 id="eventTitle">NOS Alive</h1>
-        <p id="eventParagraph">Venha ao Passeio Maritimo de Alges ver: Pearl Jam, The Gift, Churky e muito mais.</p>
+        <h1 id="eventTitle1">
+          <?php echo $arr[3][$eventTitle];?>
+        </h1>
+        <p id="eventParagraph">
+          <?php echo $arr[3][$eventParagraph];?>
+        </p>
       </div>
     </div>
 
     <div class="event">
-      <div class="event-img-container">
-        <div class="event-date-container"><p id="eventDate">12, 13, 14 Julho de 2018</p></div>
+      <div class="event-img-container" <?php echo 'style= "background-image: url(' . $arr[4][$eventImgLink] . ');"';?>>
+        <div class="event-date-container"><p id="eventDate">
+          <?php echo $arr[4][$eventDate];?>
+        </p></div>
       </div>
       <div class="event-text-container">
-        <h1 id="eventTitle">NOS Alive</h1>
-        <p id="eventParagraph">Venha ao Passeio Maritimo de Alges ver: Pearl Jam, The Gift, Churky e muito mais.</p>
+        <h1 id="eventTitle1">
+          <?php echo $arr[4][$eventTitle];?>
+        </h1>
+        <p id="eventParagraph">
+          <?php echo $arr[4][$eventParagraph];?>
+        </p>
       </div>
     </div>
+
   </div>
 </body>
 

@@ -83,6 +83,7 @@
 .event-img-container {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center; 
 
   display: block;
   position: relative;
