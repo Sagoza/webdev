@@ -1,0 +1,117 @@
+:root {
+  --root-width: 100%;
+  --root-content-width: 60%;
+  --root-div-topmargin: 30px;
+  --root-bottom-border-size: 3px;
+  --root-bottom-border-color: white;
+  --root-background-color: cornflowerblue;
+
+  --tpb-height: 60px;
+  --tpb-width: 100px;
+}
+header {
+  z-index: 1;
+  position: fixed;
+  background: var(--root-background-color);
+  top: 0;
+  margin: 0;
+  padding: 0;
+  height: var(--tpb-height);
+  width: var(--root-width);
+  /*border-bottom: solid var(--root-bottom-border-size) var(--root-bottom-border-color);*/
+}
+.tb {
+  width: 100%;
+  border-bottom: solid var(--root-bottom-border-size)
+    var(--root-bottom-border-color);
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li {
+  font-family: Josefin Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  float: right;
+  margin-right: 10px;
+}
+li a:hover {
+  /*background-color: #111;*/
+  color: black;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  width: var(--tpb-width);
+  line-height: var(--tpb-height);
+  text-decoration: none;
+}
+.sicon {
+  float: left;
+  margin: 5px;
+  width: 50px;
+  height: 50px;
+}
+.sep {
+  font-family: Josefin Sans;
+  color: black;
+  width: var(--root-content-width);
+  margin: var(--root-div-topmargin) auto var(--root-div-topmargin) auto;
+  border-bottom: solid var(--root-bottom-border-size)
+    var(--root-bottom-border-color);
+}
+body {
+  margin: var(--tpb-height) auto auto auto;
+  background: var(--root-background-color);
+}
+footer {
+  background: black;
+  font-family: Roboto;
+  /*width: var(--root-width);*/
+  /*background: white;*/
+  padding: 50px 0px 50px 0px;
+  margin: 50px auto auto auto;
+  padding: 0;
+}
+.footer-container {
+  width: var(--root-content-width);
+  margin: auto;
+  display: flex;
+}
+.footer-column {
+  flex-grow: 1;
+}
+footer h1 {
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  text-transform: uppercase;
+  margin: 30px 15px 15px 0px;
+  /*text-align: center;*/
+}
+footer p {
+  color: grey;
+  /*font-size: 20px;*/
+  font-weight: 300;
+  margin: 5px 0px 0px 0px;
+  /*text-align: center;*/
+}
+.footer-p {
+  text-align: center;
+  margin-top: 20px;
+  padding: 30px;
+}
+/*MAIN GENERAL END*/
+
+/*GLOBAL USE FORMAT*/
+
+.no-margin {
+  margin-right: 0px;
+}
+.no-border {
+  border-right: 0px;
+}
